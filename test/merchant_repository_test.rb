@@ -5,7 +5,7 @@ require './lib/merchant_repository'
 class MerchantRepositoryTest < MiniTest::Test
   attr_reader :merchant_repo
   def setup
-    @merchant_repo = MechantRepository.new
+    @merchant_repo = MerchantRepository.new
   end
 
   def test_it_exists
