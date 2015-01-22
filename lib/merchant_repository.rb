@@ -31,6 +31,3 @@ class MerchantRepository
     merchants.select { |merchant| merchant.send(attribute) == match }
   end
 end
-
-merch = MerchantRepository.new('test/support/sample_merchants.csv')
-p merch.merchants.map(&:created_at)
