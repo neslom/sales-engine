@@ -18,8 +18,7 @@ class InvoiceItemsTest < MiniTest::Test
   end
 
   def test_it_formats_unit_price
-    skip
     invoice_items = InvoiceItems.new({:unit_price => "13635"}, nil)
-    assert_equal ??, invoice_items.unit_price
+    assert_equal 136.35, invoice_items.unit_price
   end
 end

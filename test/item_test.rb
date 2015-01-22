@@ -18,7 +18,7 @@ class ItemTest < MiniTest::Test
   end
 
   def test_returns_unit_price
-    item = Item.new({:id => "3", :name => "John", :unit_price => '75107'}, nil)
+    item = Item.new({:id => "3", :unit_price => '75107'}, nil)
     assert_equal 751.07, item.unit_price 
   end
 end
