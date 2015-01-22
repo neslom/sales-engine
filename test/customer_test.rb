@@ -13,7 +13,7 @@ class CustomerTest < MiniTest::Test
   end
 
   def test_returns_first_name
-    customer = Customer.new({:id => "3", :first_name => "Cecelia"}, "string")
+    customer = Customer.new({:id => "3", :first_name => "Cecelia"}, nil)
     assert_equal "Cecelia", customer.first_name
   end
 
