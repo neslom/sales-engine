@@ -19,7 +19,6 @@ class ItemRepository
     items
   end
 
-<<<<<<< HEAD
   def random
     items.sample
   end
@@ -32,5 +31,3 @@ class ItemRepository
     items.select { |item| item.send(attribute) == match }
   end
 end
-=======
->>>>>>> master
