@@ -21,4 +21,9 @@ class ItemTest < MiniTest::Test
     item = Item.new({:id => "3", :unit_price => '75107'}, nil)
     assert_equal 751.07, item.unit_price 
   end
+
+  def test_it_returns_zero_for_nil_unit_price
+    item = Item.new({:unit_price => nil}, nil)
+    assert_equal 0.0, item.unit_price 
+  end
 end
