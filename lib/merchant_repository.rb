@@ -30,4 +30,19 @@ class MerchantRepository
   def find_all_by_attribute(attribute, match)
     merchants.select { |merchant| merchant.send(attribute) == match }
   end
+<<<<<<< HEAD
+
+  def find_by_name(value)
+    find_by_attribute("name", value)
+  end
+
+  def find_all_by_name(value)
+    find_all_by_attribute("name", value)
+  end
+
+  def find_by_merchant_id(value)
+    find_by_attribute("id", value)
+  end
+=======
+>>>>>>> master
 end
