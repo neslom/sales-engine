@@ -1,5 +1,5 @@
 class Merchant
-  attr_reader :id, :name, :parent
+  attr_reader :id, :name, :parent, :created_at
   def initialize(data, parent)
     @id = data[:id].to_i
     @name = data[:name]

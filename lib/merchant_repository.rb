@@ -18,8 +18,19 @@ class MerchantRepository
   def all
     merchants
   end
+
+  def random
+    merchants.sample
+  end
+
+  def find_by_attribute(attribute, match)
+    merchants.detect { |merchant| merchant.send(attribute) == match }
+  end
+
+  def find_all_by_attribute(attribute, match)
+    merchants.select { |merchant| merchant.send(attribute) == match }
+  end
 end
 
 merch = MerchantRepository.new('test/support/sample_merchants.csv')
-
-puts merch.all[0].name
+p merch.merchants.map(&:created_at)
