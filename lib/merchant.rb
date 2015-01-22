@@ -10,6 +10,3 @@ class Merchant
     @parent = parent
   end
 end
-
-#DateTime.strptime(data[:created_at], "%Y-%m-%d %k:%M:%S UTC")
-
