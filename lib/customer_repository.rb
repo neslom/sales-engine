@@ -48,3 +48,5 @@ class CustomerRepository
   end
 end
 
+repo = CustomerRepository.new('test/support/sample_customers.csv')
+p repo.customers.map(&:updated_at)
