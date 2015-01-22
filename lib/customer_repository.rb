@@ -47,6 +47,3 @@ class CustomerRepository
     find_all_by_attribute("last_name", value)
   end
 end
-
-repo = CustomerRepository.new('test/support/sample_customers.csv')
-p repo.customers.map(&:updated_at)
