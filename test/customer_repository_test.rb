@@ -32,17 +32,18 @@ class CustomerRepositoryTest < MiniTest::Test
   end
 
   def test_find_by_attribute
-    result = customer_repo.find_by_attribute('first_name', "Joey")
-    assert_equal "Joey", result.first_name
+    result = customer_repo.find_by_first_name("Joey")
+    assert_equal 1, result.id
 
-    result2 = customer_repo.find_by_attribute('id', 3)
-    assert_equal 3, result2.id
+    result2 = customer_repo.find_by_last_name("Ondricka")
+    assert_equal 1, result2.id
   end
 
   def test_find_all_by_attribute
-    result = customer_repo.find_all_by_attribute("first_name", "Cecelia")
+    result = customer_repo.find_all_by_first_name("Cecelia")
     assert_equal 1, result.size 
-    result2 = customer_repo.find_all_by_attribute("created_at", "2012-03-27 14:54:10 UTC")
-    assert_equal 6, result2.size
+
+    result2 = customer_repo.find_all_by_last_name("Ondricka")
+    assert_equal 1, result2.size
   end
 end
