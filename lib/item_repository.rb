@@ -9,7 +9,3 @@ class ItemRepository
   end
 end
 
-
-item = ItemRepository.new
-item.read_from_csv
-p item.items.map(&:name)
