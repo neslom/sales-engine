@@ -20,7 +20,7 @@ class TransactionRepositoryTest < MiniTest::Test
 
   def test_all_returns_all_transaction_instances
     merchant_count = transaction_repo.all
-    assert_equal 9, merchant_count.size 
+    assert_equal 99, merchant_count.size 
   end
 
   def test_random_returns_random_transaction
@@ -44,6 +44,6 @@ class TransactionRepositoryTest < MiniTest::Test
     assert_equal 1, result.size 
     
     result2 = transaction_repo.find_all_by_attribute("result", "success")
-    assert_equal 9, result2.size
+    assert_equal 83, result2.size
   end
 end

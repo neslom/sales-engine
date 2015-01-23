@@ -20,7 +20,7 @@ class ItemRepositoryTest < MiniTest::Test
 
   def test_all_returns_all_item_instances
     item_count = item_repo.all
-    assert_equal 10, item_count.size 
+    assert_equal 100, item_count.size 
     refute_equal 8, item_count.size
   end
 
@@ -41,8 +41,8 @@ class ItemRepositoryTest < MiniTest::Test
 
   def test_find_all_by_attribute
     result = item_repo.find_all_by_attribute("merchant_id", 1)
-    assert_equal 9, result.size 
-    #result2 = item_repo.find_all_by_attribute("created_at", "2012-03-27 14:53:59 UTC")
-    #assert_equal 9, result2.size
+    assert_equal 15, result.size 
+    result2 = item_repo.find_all_by_attribute("created_at", "2012-03-27 14:53:59 UTC")
+    assert_equal 0, result2.size
   end
 end

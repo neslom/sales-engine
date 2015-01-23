@@ -20,7 +20,7 @@ class MerchantRepositoryTest < MiniTest::Test
 
   def test_all_returns_all_merchant_instances
     merchant_count = merchant_repo.all
-    assert_equal 9, merchant_count.size 
+    assert_equal 99, merchant_count.size 
   end
 
   def test_random_returns_random_merchant
