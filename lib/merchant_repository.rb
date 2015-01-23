@@ -2,8 +2,8 @@ require 'csv'
 require_relative 'merchant_parser'
 
 class MerchantRepository
-  attr_reader :file_name, :merchants
-  def initialize(file_name, parent=nil)
+  attr_reader :file_name, :merchants, :parent
+  def initialize(file_name, parent=SalesEngine.new)
     @merchants = [] 
     @parent = parent
     create_merchants(file_name)
@@ -39,7 +39,8 @@ class MerchantRepository
     find_all_by_attribute("name", value)
   end
 
-  def find_by_merchant_id(value)
+  def find_all_items_by_merchant_id(value)
     find_by_attribute("id", value)
+    parent.find_all_items_by_merchant_id(value)
   end
 end
