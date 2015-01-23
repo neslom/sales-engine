@@ -3,7 +3,7 @@ require_relative 'item_parser'
 
 class ItemRepository
   attr_reader :file_name, :items, :parent
-  def initialize(file_name, parent=nil)
+  def initialize(file_name, parent=SalesEngine.new)
     @items = [] 
     @parent = parent
     create_items(file_name)
