@@ -30,4 +30,8 @@ class InvoiceRepository
   def find_all_by_attribute(attribute, match)
     invoices.select { |invoice| invoice.send(attribute) == match }
   end
+
+  def find_invoices_by_merchant_id(id)
+    find_all_by_attribute("merchant_id", id)
+  end
 end
