@@ -10,7 +10,7 @@ class MerchantTest < MiniTest::Test
     @parent = MerchantRepository.new('test/support/sample_merchants.csv', sales_engine)
     @merch = Merchant.new({:id => "3", :name => "Willms and Sons", :created_at => "2012-03-27 14:53:59 UTC", :updated_at => "2012-03-27 14:53:59 UTC"}, parent)
   end
-  
+
   def test_it_exists
     assert merch
   end
@@ -30,5 +30,15 @@ class MerchantTest < MiniTest::Test
     refute_equal 7, result.size
     result2 = merch.find_all_items_by_merchant_id(3)
     assert_equal 27, result2.size
+  end
+
+  def test_find_all_invoices_by_merchant_id
+    merchant = Merchant.new({:id => "99", :name => "John"}, parent)
+    result = merchant.find_invoices_by_merchant_id(99)
+    assert_equal 2, result.size 
+    refute_equal 4, result.size
+    merchant2 = Merchant.new({:id => "2", :name => "John"}, parent)
+    result2 = merchant2.find_invoices_by_merchant_id(2)
+    assert_equal 2, result2.size 
   end
 end
