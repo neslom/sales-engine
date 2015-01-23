@@ -26,9 +26,9 @@ class MerchantTest < MiniTest::Test
   def test_find_all_items_by_merchant_id
     merchant = Merchant.new({:id => "1", :name => "John"}, parent) 
     result = merchant.find_all_items_by_merchant_id(1)
-    assert_equal 9, result.size
+    assert_equal 15, result.size
     refute_equal 7, result.size
     result2 = merch.find_all_items_by_merchant_id(3)
-    assert_equal 1, result2.size
+    assert_equal 27, result2.size
   end
 end

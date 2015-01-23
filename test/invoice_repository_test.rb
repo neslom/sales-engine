@@ -20,7 +20,7 @@ class InvoiceRepositoryTest < MiniTest::Test
 
   def test_all_returns_all_invoice_instances
     invoice_count = invoice_repo.all
-    assert_equal 10, invoice_count.size 
+    assert_equal 99, invoice_count.size 
     refute_equal 9, invoice_count.size
   end
 
