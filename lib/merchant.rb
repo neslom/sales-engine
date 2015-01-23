@@ -9,4 +9,8 @@ class Merchant
     @updated_at = DateFormatter.format(data[:updated_at])
     @parent = parent
   end
+  
+  def find_all_items_by_merchant_id(id)
+    parent.find_all_items_by_merchant_id(id)
+  end 
 end
