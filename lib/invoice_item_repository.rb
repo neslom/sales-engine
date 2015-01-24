@@ -2,8 +2,8 @@ require 'csv'
 require_relative 'invoice_item_parser'
 
 class InvoiceItemRepository
-  attr_reader :file_name, :invoice_items
-  def initialize(file_name, parent=nil)
+  attr_reader :file_name, :invoice_items, :parent
+  def initialize(file_name, parent=SalesEngine.new)
     @invoice_items = [] 
     @parent = parent
     create_invoice_items(file_name)
@@ -31,39 +31,8 @@ class InvoiceItemRepository
     invoice_items.select { |invoice_item| invoice_item.send(attribute) == match }
   end
 
-  def find_by_item_id(value)
-    find_by_attribute("item_id", value)
+  def find_all_invoice_items_by_invoice_id(id)
+    find_all_by_attribute("invoice_id", id)
   end
-
-  def find_all_by_item_id(value)
-    find_all_by_attribute("item_id", value)
-  end
-
-  def find_by_invoice_id(value)
-    find_by_attribute("invoice_id", value)
-  end
-
-  def find_all_by_invoice_id(value)
-    find_all_by_attribute("invoice_id", value)
-  end
-
-   def find_by_quantity(value)
-    find_by_attribute("quantity", value)
-  end
-
-  def find_all_by_quantity(value)
-    find_all_by_attribute("quantity", value)
-  end
-
-  def find_by_unit_price(value)
-    #need to convert to bignum(USD)
-    find_by_attribute("unit_price", value)
-  end
-
-  def find_all_by_unit_price(value)
-    #need to convert to bignum(USD)
-    find_all_by_attribute("unit_price", value)
-  end
-
 end
 
