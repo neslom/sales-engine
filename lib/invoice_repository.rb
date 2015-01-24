@@ -52,4 +52,9 @@ class InvoiceRepository
     cust_id = find_by_attribute("id", id).customer_id
     parent.find_customer_by_invoice_id(cust_id) 
   end
+
+  def find_merchant_by_invoice_id(id)
+    merch_id = find_by_attribute("id", id).merchant_id
+    parent.find_merchant_by_invoice_id(merch_id)
+  end
 end

@@ -47,4 +47,10 @@ class InvoiceTest < MiniTest::Test
     result2 = invoice.find_customer_by_invoice_id(11)
     assert_equal 3, result2.id
   end
+
+  def test_find_merchant_by_invoice_id
+    result = invoice.find_merchant_by_invoice_id(6)
+    assert_equal 76, result.id
+    assert_includes result.name, "Kirlin"
+  end
 end
