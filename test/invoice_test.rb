@@ -36,7 +36,7 @@ class InvoiceTest < MiniTest::Test
   end
 
   def test_find_items_by_way_of_invoice_items
-    result = invoice.find_item_by_way_of_invoice_items(5)
-    assert_equal 1, result.size
+    result = invoice.find_item_by_way_of_invoice_items(29)
+    assert_equal 8, result.size
   end
 end

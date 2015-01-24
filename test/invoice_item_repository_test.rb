@@ -20,7 +20,7 @@ class InvoiceItemRepositoryTest < MiniTest::Test
 
   def test_all_returns_all_invoice_item_instances
     invoice_item_count = invoice_items_repo.all
-    assert_equal 99, invoice_item_count.size 
+    assert_equal 107, invoice_item_count.size 
   end
 
   def test_random_returns_random_invoice_item

@@ -35,5 +35,7 @@ class ItemRepository
     find_all_by_attribute("merchant_id", id)
   end
 
-  # return item, accessing it with the incoming item_id
+  def find_item_by_way_of_invoice_items(id)
+    find_all_by_attribute("id", id) 
+  end
 end

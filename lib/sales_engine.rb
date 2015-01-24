@@ -11,8 +11,14 @@ class SalesEngine
   def initialize
     @merchant_repository = MerchantRepository.new('test/support/sample_merchants.csv', self)
     @invoice_repository = InvoiceRepository.new('test/support/sample_invoices.csv', self)
+    #@invoice_repository = InvoiceRepository.new('data/invoices.csv', self)
+
     @item_repository = ItemRepository.new('test/support/sample_items.csv', self)
+    #@item_repository = ItemRepository.new('data/items.csv', self)
+
     @invoice_item_repository = InvoiceItemRepository.new('test/support/sample_invoice_items.csv', self)
+    #@invoice_item_repository = InvoiceItemRepository.new('data/invoice_items.csv', self)
+
     @customer_repository = CustomerRepository.new('test/support/sample_customers.csv', self)
     @transaction_repository = TransactionRepository.new('test/support/sample_transactions.csv', self)
   end
@@ -34,13 +40,7 @@ class SalesEngine
   end
 
   def find_item_by_way_of_invoice_items(id)
-     invoice_items = invoice_item_repository.find_item_by_way_of_invoice_items(id)
-     # dip down into invoice_item_repo here to grab ALL of the item_ids
-     #   for each invoice_item that matches the id we pass in, we need to grab its
-     #     item_id. so we'll have multiple item_ids at this point, 
-     #        so from here when we dip down into item_repository, we'll have to iterate 
-     #        through the items, returning the item for every item_id we're passing in
-     invoice_items.map { |invoice item object| IIO.item_id }. 
+    item_repository.find_item_by_way_of_invoice_items(id)
   end
 end
 

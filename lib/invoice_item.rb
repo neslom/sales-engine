@@ -9,7 +9,7 @@ class InvoiceItems
     @quantity = data[:quantity].to_i
     @unit_price = (BigDecimal.new(data[:unit_price].to_i) / BigDecimal.new(100)).to_f
     @created_at = DateFormatter.format(data[:created_at]) 
-    @updated_at = DateFormatter.format(data[:formated_at]) 
+    @updated_at = DateFormatter.format(data[:updated_at]) 
     @parent = parent
   end
 end
