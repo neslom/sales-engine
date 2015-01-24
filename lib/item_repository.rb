@@ -36,6 +36,6 @@ class ItemRepository
   end
 
   def find_item_by_way_of_invoice_items(id)
-    find_all_by_attribute("id", id) 
+    find_all_by_attribute("id", id)
   end
 end

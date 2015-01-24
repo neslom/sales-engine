@@ -26,4 +26,8 @@ class Invoice
       parent.find_item_by_way_of_invoice_items(item_id)
     end
   end
+
+  def find_customer_by_invoice_id(id)
+    parent.find_customer_by_invoice_id(id)
+  end
 end

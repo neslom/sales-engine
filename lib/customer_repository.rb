@@ -31,19 +31,23 @@ class CustomerRepository
     customers.select { |customer| customer.send(attribute) == match }
   end
 
-  def find_by_first_name(value)
-    find_by_attribute("first_name", value)
-  end
+  #def find_by_first_name(value)
+    #find_by_attribute("first_name", value)
+  #end
 
-  def find_all_by_first_name(value)
-    find_all_by_attribute("first_name", value)
-  end
+  #def find_all_by_first_name(value)
+    #find_all_by_attribute("first_name", value)
+  #end
 
-  def find_by_last_name(value)
-    find_by_attribute("last_name", value)
-  end
+  #def find_by_last_name(value)
+    #find_by_attribute("last_name", value)
+  #end
 
-  def find_all_by_last_name(value)
-    find_all_by_attribute("last_name", value)
+  #def find_all_by_last_name(value)
+    #find_all_by_attribute("last_name", value)
+  #end
+
+  def find_customer_by_invoice_id(id)
+    find_by_attribute("id", id)
   end
 end
