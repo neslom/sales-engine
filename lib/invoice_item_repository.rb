@@ -34,5 +34,16 @@ class InvoiceItemRepository
   def find_all_invoice_items_by_invoice_id(id)
     find_all_by_attribute("invoice_id", id)
   end
+
+  def find_item_by_way_of_invoice_items(id)
+   # we need to return the objects now by item_id
+   find_all_by_attribute("invoice_id", id) 
+   # this returns all of the invoice_item objects that we need
+   # let's say invoice_id passed in is (1) 
+   #    SO, iterate through all invoice items, and select
+   #    the item_id each time the invoice_id is (1).
+   #   Then with this collection of item_ids, we have to iterate
+   #   through Items.csv and return all that match the item_ids
+  end
 end
 

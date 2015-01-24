@@ -34,4 +34,6 @@ class ItemRepository
   def find_all_items_by_merchant_id(id)
     find_all_by_attribute("merchant_id", id)
   end
+
+  # return item, accessing it with the incoming item_id
 end

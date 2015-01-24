@@ -32,5 +32,15 @@ class SalesEngine
   def find_all_invoice_items_by_invoice_id(id)
     invoice_item_repository.find_all_invoice_items_by_invoice_id(id)
   end
+
+  def find_item_by_way_of_invoice_items(id)
+     invoice_items = invoice_item_repository.find_item_by_way_of_invoice_items(id)
+     # dip down into invoice_item_repo here to grab ALL of the item_ids
+     #   for each invoice_item that matches the id we pass in, we need to grab its
+     #     item_id. so we'll have multiple item_ids at this point, 
+     #        so from here when we dip down into item_repository, we'll have to iterate 
+     #        through the items, returning the item for every item_id we're passing in
+     invoice_items.map { |invoice item object| IIO.item_id }. 
+  end
 end
 

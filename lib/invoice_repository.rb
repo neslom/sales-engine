@@ -42,4 +42,8 @@ class InvoiceRepository
   def find_all_invoice_items_by_invoice_id(id)
     parent.find_all_invoice_items_by_invoice_id(id)
   end
+
+  def find_item_by_way_of_invoice_items(id)
+    parent.find_item_by_way_of_invoice_items(id)
+  end
 end

@@ -19,5 +19,15 @@ class Invoice
   def find_all_invoice_items_by_invoice_id(id)
     parent.find_all_invoice_items_by_invoice_id(id)
   end
-end
 
+  #item search starts here with invoice_id, goes up to item_repository, then up to 
+  #  sales engine ( still carrying the invoice_id), we then need to query invoice_items_repo
+  #  , but we want to return the item_ids associated with the invoice_ids on each invoice_item
+  #   we then pass the item_id value we just grabbed into item_repository and that is our 
+  #     final return value
+  def find_item_by_way_of_invoice_items(id)
+    find_all_invoice_items_by_invoice_id(id).
+    
+    parent.find_item_by_way_of_invoice_items(id)
+  end
+end
