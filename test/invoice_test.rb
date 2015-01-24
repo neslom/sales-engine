@@ -39,4 +39,12 @@ class InvoiceTest < MiniTest::Test
     result = invoice.find_item_by_way_of_invoice_items(29)
     assert_equal 8, result.size
   end
+
+  def test_find_customer_by_invoice_id
+    result = invoice.find_customer_by_invoice_id(14)
+    assert_equal 4, result.id
+    assert_equal "Leanne", result.first_name
+    result2 = invoice.find_customer_by_invoice_id(11)
+    assert_equal 3, result2.id
+  end
 end

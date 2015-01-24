@@ -20,7 +20,7 @@ class ItemRepositoryTest < MiniTest::Test
 
   def test_all_returns_all_item_instances
     item_count = item_repo.all
-    assert_equal 100, item_count.size 
+    assert_equal 99, item_count.size 
     refute_equal 8, item_count.size
   end
 

@@ -1,3 +1,4 @@
+require 'pry'
 require 'csv'
 require_relative 'invoice_parser'
 
@@ -45,5 +46,10 @@ class InvoiceRepository
 
   def find_item_by_way_of_invoice_items(id)
     parent.find_item_by_way_of_invoice_items(id)
+  end
+
+  def find_customer_by_invoice_id(id)
+    cust_id = find_by_attribute("id", id).customer_id
+    parent.find_customer_by_invoice_id(cust_id) 
   end
 end
