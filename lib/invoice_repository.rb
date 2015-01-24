@@ -2,8 +2,8 @@ require 'csv'
 require_relative 'invoice_parser'
 
 class InvoiceRepository
-  attr_reader :file_name, :invoices
-  def initialize(file_name, parent=nil)
+  attr_reader :file_name, :invoices, :parent
+  def initialize(file_name, parent=SalesEngine.new)
     @invoices = [] 
     @parent = parent
     create_invoices(file_name)
@@ -33,5 +33,17 @@ class InvoiceRepository
 
   def find_invoices_by_merchant_id(id)
     find_all_by_attribute("merchant_id", id)
+  end
+
+  def find_all_transactions_by_invoice_id(id)
+    parent.find_all_transactions_by_invoice_id(id)
+  end
+
+  def find_all_invoice_items_by_invoice_id(id)
+    parent.find_all_invoice_items_by_invoice_id(id)
+  end
+
+  def find_item_by_way_of_invoice_items(id)
+    parent.find_item_by_way_of_invoice_items(id)
   end
 end
