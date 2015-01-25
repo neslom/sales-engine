@@ -46,4 +46,9 @@ class ItemRepository
   def find_invoice_items_by_item_id(id)
     parent.find_invoice_items_by_item_id(id)
   end
+
+  def find_merchant_by_item_id(id)
+    merchant_id = find_by_attribute("id", id).merchant_id
+    parent.find_merchant_by_item_id(merchant_id)
+  end
 end
