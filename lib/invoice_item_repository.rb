@@ -48,5 +48,9 @@ class InvoiceItemRepository
     item_id = find_by_attribute("id", id).item_id
     parent.find_item_by_invoice_item_id(item_id)
   end
+
+  def find_invoice_items_by_item_id(id)
+    find_all_by_attribute("item_id", id)
+  end
 end
 
