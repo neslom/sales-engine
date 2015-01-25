@@ -21,4 +21,10 @@ class TransactionTest < MiniTest::Test
   def test_returns_credit_card_number_as_integer
     assert_equal 4354495077693036, @transaction.credit_card_number
   end
+
+  def test_it_finds_invoice_by_transaction_id
+    result = transaction.find_invoice_by_transaciton_id(6)
+    assert_equal 7, result.id
+    assert_equal 44, result.merchant_id
+  end
 end

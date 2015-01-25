@@ -2,7 +2,7 @@ require 'csv'
 require_relative 'customer_parser'
 
 class CustomerRepository
-  attr_reader :file_name, :customers
+  attr_reader :file_name, :customers, :parent
   def initialize(file_name, parent=nil)
     @customers = [] 
     @parent = parent
@@ -49,5 +49,9 @@ class CustomerRepository
 
   def find_customer_by_invoice_id(id)
     find_by_attribute("id", id)
+  end
+
+  def find_all_invoices_by_customer_id(id)
+    parent.find_all_invoices_by_customer_id(id)
   end
 end

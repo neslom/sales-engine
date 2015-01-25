@@ -25,4 +25,9 @@ class CustomerTest < MiniTest::Test
   def test_returns_date_object_for_updated_at
     assert_equal DateTime, @customer.updated_at.class
   end
+
+  def test_it_finds_all_invoices_by_customer_id
+    result = customer.find_all_invoices_by_customer_id(12)
+    assert_equal 9, result.size
+  end
 end
