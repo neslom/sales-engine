@@ -59,4 +59,8 @@ class SalesEngine
     # searching by invoice_id at this point
     item_repository.find_item_by_invoice_item_id(id)
   end
+
+  def find_invoice_by_transaciton_id(id)
+    invoice_repository.find_invoice_by_transaciton_id(id)
+  end
 end

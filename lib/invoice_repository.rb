@@ -61,4 +61,8 @@ class InvoiceRepository
   def find_invoice_by_invoice_item_id(id)
     find_by_attribute("id", id)
   end
+
+  def find_invoice_by_transaciton_id(id)
+    find_by_attribute("id", id)
+  end
 end
