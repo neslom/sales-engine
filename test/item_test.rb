@@ -35,4 +35,11 @@ class ItemTest < MiniTest::Test
     assert_equal 2, result.size
     assert_equal 138, result[0].id
   end
+
+  def test_find_merchant_by_item_id
+    result = item.find_merchant_by_item_id(9)
+    assert_equal 1, result.merchant_id
+    result2 = item.find_merchant_by_item_id(99)
+    assert_equal 5, result2.merchant_id
+  end
 end

@@ -17,4 +17,8 @@ class Item
   def find_invoice_items_by_item_id(id)
     parent.find_invoice_items_by_item_id(id)
   end
+
+  def find_merchant_by_item_id(id)
+    parent.find_merchant_by_item_id(id)
+  end
 end
