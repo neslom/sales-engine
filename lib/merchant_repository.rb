@@ -4,7 +4,7 @@ require_relative 'merchant_parser'
 class MerchantRepository
   attr_reader :file_name, :merchants, :parent
   def initialize(file_name, parent=SalesEngine.new)
-    @merchants = [] 
+    @merchants = []
     @parent = parent
     create_merchants(file_name)
   end
@@ -49,6 +49,10 @@ class MerchantRepository
   end
 
   def find_merchant_by_invoice_id(id)
+    find_by_attribute("id", id)
+  end
+
+  def find_merchant_by_item_id(id)
     find_by_attribute("id", id)
   end
 end

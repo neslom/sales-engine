@@ -19,8 +19,6 @@ class InvoiceItems
   end
 
   def find_item_by_invoice_item_id(id)
-    # go up into invoice_item_repository and grab the item_id there, then pass that item_id up to sales engine
-    #     and dip into item_repository from there, and select the (singular) item object associated w/ that item_id
     parent.find_item_by_invoice_item_id(id)
   end
 end

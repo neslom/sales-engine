@@ -1,5 +1,5 @@
 require 'bigdecimal'
-require_relative 'date_formatter' 
+require_relative 'date_formatter'
 
 class Item
   attr_reader :id, :name, :parent, :description, :unit_price, :merchant_id, :created_at
@@ -12,5 +12,13 @@ class Item
     @created_at = DateFormatter.format(data[:created_at])
     @updated_at = DateFormatter.format(data[:updated_at])
     @parent = parent
+  end
+
+  def find_invoice_items_by_item_id(id)
+    parent.find_invoice_items_by_item_id(id)
+  end
+
+  def find_merchant_by_item_id(id)
+    parent.find_merchant_by_item_id(id)
   end
 end

@@ -56,7 +56,6 @@ class SalesEngine
   end
 
   def find_item_by_invoice_item_id(id)
-    # searching by invoice_id at this point
     item_repository.find_item_by_invoice_item_id(id)
   end
 
@@ -66,5 +65,15 @@ class SalesEngine
 
   def find_all_invoices_by_customer_id(id)
     invoice_repository.find_all_invoices_by_customer_id(id)
+
+  def find_invoice_items_by_item_id(id)
+    # this is an example of an eventual refactoring opportunity
+    # invoice_item_repository.find_invoice_items_by_item_id(id)
+    invoice_item_repository.find_all_by_attribute("item_id", id)
+  end
+
+  def find_merchant_by_item_id(id)
+    #merchant_repository.find_by_attribute("id", id)
+    merchant_repository.find_merchant_by_item_id(id)
   end
 end
