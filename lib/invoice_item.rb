@@ -1,3 +1,4 @@
+require 'pry'
 require_relative 'date_formatter'
 
 class InvoiceItems
@@ -13,7 +14,6 @@ class InvoiceItems
     @parent = parent
   end
 
-  # return an instance of Invoice object associated with the invoiceitem id we pass in here
   def find_invoice_by_invoice_item_id(id)
     parent.find_invoice_by_invoice_item_id(id) 
   end 
