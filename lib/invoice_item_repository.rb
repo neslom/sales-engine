@@ -38,5 +38,12 @@ class InvoiceItemRepository
   def find_item_by_way_of_invoice_items(id)
     find_all_by_attribute("invoice_id", id) 
   end
+
+  def find_invoice_by_invoice_item_id(id)
+    # find the object w/ this invoiceitem id, and get its invoice_id
+    invoice_id = find_by_attribute("id", id).invoice_id
+    # now pass this invoice id into invoice repository and return that object
+    parent.find_invoice_by_invoice_item_id(invoice_id)
+  end
 end
 
