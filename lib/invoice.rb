@@ -30,4 +30,8 @@ class Invoice
   def find_customer_by_invoice_id(id)
     parent.find_customer_by_invoice_id(id)
   end
+
+  def find_merchant_by_invoice_id(id)
+    parent.find_merchant_by_invoice_id(id)
+  end
 end
