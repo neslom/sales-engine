@@ -4,7 +4,7 @@ require_relative 'item_parser'
 class ItemRepository
   attr_reader :file_name, :items, :parent
   def initialize(file_name, parent=SalesEngine.new)
-    @items = [] 
+    @items = []
     @parent = parent
     create_items(file_name)
   end
@@ -37,5 +37,9 @@ class ItemRepository
 
   def find_item_by_way_of_invoice_items(id)
     find_all_by_attribute("id", id)
+  end
+
+  def find_item_by_invoice_item_id(id)
+    find_by_attribute("id", id)
   end
 end

@@ -4,7 +4,7 @@ require_relative 'invoice_item_parser'
 class InvoiceItemRepository
   attr_reader :file_name, :invoice_items, :parent
   def initialize(file_name, parent=SalesEngine.new)
-    @invoice_items = [] 
+    @invoice_items = []
     @parent = parent
     create_invoice_items(file_name)
   end
@@ -36,12 +36,17 @@ class InvoiceItemRepository
   end
 
   def find_item_by_way_of_invoice_items(id)
-    find_all_by_attribute("invoice_id", id) 
+    find_all_by_attribute("invoice_id", id)
   end
 
   def find_invoice_by_invoice_item_id(id)
     invoice_id = find_by_attribute("id", id).invoice_id
     parent.find_invoice_by_invoice_item_id(invoice_id)
+  end
+
+  def find_item_by_invoice_item_id(id)
+    item_id = find_by_attribute("id", id).item_id
+    parent.find_item_by_invoice_item_id(item_id)
   end
 end
 

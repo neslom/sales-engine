@@ -33,4 +33,10 @@ class InvoiceItemsTest < MiniTest::Test
     result2 = invoice_item.find_invoice_by_invoice_item_id(28)
     assert_equal 6, result2.id
   end
+
+  def test_find_item_by_invoice_item_id
+    result = invoice_item.find_item_by_invoice_item_id(139)
+    assert_equal 7, result.id
+    assert_equal 311.63, result.unit_price
+  end
 end
