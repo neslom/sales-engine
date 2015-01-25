@@ -35,9 +35,9 @@ class TransactionRepository
     find_all_by_attribute("invoice_id", id)
   end
 
-  def find_invoice_by_transaciton_id(id)
+  def find_invoice_by_transaction_id(id)
     invoice_id = find_by_attribute("id", id).invoice_id
-    parent.find_invoice_by_transaciton_id(invoice_id)
+    parent.find_invoice_by_transaction_id(invoice_id)
   end
 end
 

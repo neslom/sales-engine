@@ -13,8 +13,8 @@ class Transaction
     @parent = parent
   end
 
-  def find_invoice_by_transaciton_id(id)
-    parent.find_invoice_by_transaciton_id(id)
+  def find_invoice_by_transaction_id(id)
+    parent.find_invoice_by_transaction_id(id)
   end
 end
 
