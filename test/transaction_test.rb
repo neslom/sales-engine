@@ -23,7 +23,7 @@ class TransactionTest < MiniTest::Test
   end
 
   def test_it_finds_invoice_by_transaction_id
-    result = transaction.find_invoice_by_transaciton_id(6)
+    result = transaction.find_invoice_by_transaction_id(6)
     assert_equal 7, result.id
     assert_equal 44, result.merchant_id
   end
