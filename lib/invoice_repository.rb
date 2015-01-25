@@ -5,7 +5,7 @@ require_relative 'invoice_parser'
 class InvoiceRepository
   attr_reader :file_name, :invoices, :parent
   def initialize(file_name, parent=SalesEngine.new)
-    @invoices = [] 
+    @invoices = []
     @parent = parent
     create_invoices(file_name)
   end
@@ -50,7 +50,7 @@ class InvoiceRepository
 
   def find_customer_by_invoice_id(id)
     cust_id = find_by_attribute("id", id).customer_id
-    parent.find_customer_by_invoice_id(cust_id) 
+    parent.find_customer_by_invoice_id(cust_id)
   end
 
   def find_merchant_by_invoice_id(id)

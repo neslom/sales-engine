@@ -9,13 +9,18 @@ class InvoiceItems
     @invoice_id = data[:invoice_id].to_i
     @quantity = data[:quantity].to_i
     @unit_price = (BigDecimal.new(data[:unit_price].to_i) / BigDecimal.new(100)).to_f
-    @created_at = DateFormatter.format(data[:created_at]) 
-    @updated_at = DateFormatter.format(data[:updated_at]) 
+    @created_at = DateFormatter.format(data[:created_at])
+    @updated_at = DateFormatter.format(data[:updated_at])
     @parent = parent
   end
 
   def find_invoice_by_invoice_item_id(id)
-    parent.find_invoice_by_invoice_item_id(id) 
-  end 
-end
+    parent.find_invoice_by_invoice_item_id(id)
+  end
 
+  def find_item_by_invoice_item_id(id)
+    # go up into invoice_item_repository and grab the item_id there, then pass that item_id up to sales engine
+    #     and dip into item_repository from there, and select the (singular) item object associated w/ that item_id
+    parent.find_item_by_invoice_item_id(id)
+  end
+end

@@ -6,7 +6,7 @@ require_relative 'customer_repository'
 require_relative 'transaction_repository'
 
 class SalesEngine
-  attr_reader :merchant_repository, :invoice_repository, :item_repository, 
+  attr_reader :merchant_repository, :invoice_repository, :item_repository,
               :invoice_item_repository, :customer_repository, :transaction_repository
   def initialize
     @merchant_repository = MerchantRepository.new('test/support/sample_merchants.csv', self)
@@ -48,11 +48,15 @@ class SalesEngine
   end
 
   def find_merchant_by_invoice_id(id)
-    merchant_repository.find_merchant_by_invoice_id(id) 
+    merchant_repository.find_merchant_by_invoice_id(id)
   end
 
   def find_invoice_by_invoice_item_id(id)
     invoice_repository.find_invoice_by_invoice_item_id(id)
   end
-end
 
+  def find_item_by_invoice_item_id(id)
+    # searching by invoice_id at this point
+    item_repository.find_item_by_invoice_item_id(id)
+  end
+end
