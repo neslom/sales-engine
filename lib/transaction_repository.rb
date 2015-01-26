@@ -4,7 +4,7 @@ require_relative 'transaction_parser'
 class TransactionRepository
   attr_reader :file_name, :transactions, :parent
   def initialize(file_name, parent=SalesEngine.new)
-    @transactions = [] 
+    @transactions = []
     @parent = parent
     create_transactions(file_name)
   end

@@ -4,7 +4,7 @@ require_relative 'customer_parser'
 class CustomerRepository
   attr_reader :file_name, :customers, :parent
   def initialize(file_name, parent=nil)
-    @customers = [] 
+    @customers = []
     @parent = parent
     create_customers(file_name)
   end

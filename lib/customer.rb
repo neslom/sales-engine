@@ -12,7 +12,6 @@ class Customer
   end
 
   def find_all_invoices_by_customer_id(id)
-  	parent.find_all_invoices_by_customer_id(id)
+    parent.find_all_invoices_by_customer_id(id)
   end
-
 end
