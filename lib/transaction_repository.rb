@@ -47,6 +47,9 @@ class TransactionRepository
       puts "No revenue!"
     end
   end
-end
 
+  def inspect
+    "#<#{self.class} #{@merchants.size} rows>"
+  end
+end
 

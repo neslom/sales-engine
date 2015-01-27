@@ -69,4 +69,8 @@ class InvoiceRepository
   def find_all_invoices_by_customer_id(id)
     find_all_by_attribute("customer_id", id)
   end
+
+  def inspect
+    "#<#{self.class} #{@merchants.size} rows>"
+  end
 end
