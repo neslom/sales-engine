@@ -7,7 +7,7 @@ require_relative 'transaction_repository'
 
 class SalesEngine
   attr_reader :merchant_repository, :invoice_repository, :item_repository,
-              :invoice_item_repository, :customer_repository, :transaction_repository
+    :invoice_item_repository, :customer_repository, :transaction_repository
   def initialize
     @merchant_repository = MerchantRepository.new('test/support/sample_merchants.csv', self)
     @invoice_repository = InvoiceRepository.new('test/support/sample_invoices.csv', self)
@@ -76,5 +76,16 @@ class SalesEngine
   def find_merchant_by_item_id(id)
     #merchant_repository.find_by_attribute("id", id)
     merchant_repository.find_merchant_by_item_id(id)
+  end
+
+  # below begins calling repository methods from within this class
+
+  def find_total_revenue_by_merchant_id(id)
+    invoice_id = invoice_repository.find_all_by_attribute("merchant_id", id).map(&:id)
+    transaction_repository.find_total_revenue_by_merchant_id(invoice_id)
+  end
+
+  def calculate_revenue(invoice_id)
+    invoice_item_repository.calculate_revenue(invoice_id)
   end
 end

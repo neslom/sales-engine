@@ -24,7 +24,7 @@ class MerchantTest < MiniTest::Test
   end
 
   def test_find_all_items_by_merchant_id
-    merchant = Merchant.new({:id => "1", :name => "John"}, parent) 
+    merchant = Merchant.new({:id => "1", :name => "John"}, parent)
     result = merchant.find_all_items_by_merchant_id(1)
     assert_equal 15, result.size
     refute_equal 7, result.size
@@ -35,10 +35,25 @@ class MerchantTest < MiniTest::Test
   def test_find_all_invoices_by_merchant_id
     merchant = Merchant.new({:id => "99", :name => "John"}, parent)
     result = merchant.find_invoices_by_merchant_id(99)
-    assert_equal 2, result.size 
+    assert_equal 2, result.size
     refute_equal 4, result.size
     merchant2 = Merchant.new({:id => "2", :name => "John"}, parent)
     result2 = merchant2.find_invoices_by_merchant_id(2)
-    assert_equal 2, result2.size 
+    assert_equal 2, result2.size
+  end
+
+  #def test_find_transaction_by_way_of_merchant_id
+    #skip
+    #result = merch.find_total_revenue_by_merchant_id(84)
+    #assert_equal 16, result[0].id
+    #result2 = merch.find_total_revenue_by_merchant_id(3)
+    #assert_equal 95, result2[0].id
+  #end
+
+  def test_find_total_revenue_by_merhant_id
+    result = merch.find_total_revenue_by_merchant_id(84)
+    # invoice_id = 15;
+    assert_equal BigDecimal, result.class
+    assert_equal 31156.16, result.to_f
   end
 end

@@ -39,5 +39,14 @@ class TransactionRepository
     invoice_id = find_by_attribute("id", id).invoice_id
     parent.find_invoice_by_transaction_id(invoice_id)
   end
+
+  def find_total_revenue_by_merchant_id(id)
+    if id.map { |invoice_id| find_all_by_attribute("invoice_id", invoice_id) }.flatten.any? { |t| t.result == "success" }
+      parent.calculate_revenue(id)
+    else
+      puts "No revenue!"
+    end
+  end
 end
+
 
