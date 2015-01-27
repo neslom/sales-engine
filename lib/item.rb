@@ -7,7 +7,7 @@ class Item
     @id = data[:id].to_i
     @name = data[:name]
     @description = data[:description]
-    @unit_price = (BigDecimal.new(data[:unit_price].to_i) / BigDecimal.new(100)).to_f
+    @unit_price = BigDecimal.new(data[:unit_price].to_s) / BigDecimal.new(100)
     @merchant_id = data[:merchant_id].to_i
     @created_at = DateFormatter.format(data[:created_at])
     @updated_at = DateFormatter.format(data[:updated_at])

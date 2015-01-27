@@ -11,7 +11,8 @@ class ItemRepositoryTest < MiniTest::Test
   def test_it_parses_csv_file
     first = item_repo.items.first
     assert_equal 1, first.id
-    assert_equal 751.07, first.unit_price
+    assert_equal 751.07, first.unit_price.to_f
+    assert_equal BigDecimal, first.unit_price.class
 
     second = item_repo.items[1]
     assert_equal 2, second.id
@@ -20,7 +21,7 @@ class ItemRepositoryTest < MiniTest::Test
 
   def test_all_returns_all_item_instances
     item_count = item_repo.all
-    assert_equal 99, item_count.size 
+    assert_equal 99, item_count.size
     refute_equal 8, item_count.size
   end
 
@@ -41,7 +42,7 @@ class ItemRepositoryTest < MiniTest::Test
 
   def test_find_all_by_attribute
     result = item_repo.find_all_by_attribute("merchant_id", 1)
-    assert_equal 15, result.size 
+    assert_equal 15, result.size
     result2 = item_repo.find_all_by_attribute("created_at", "2012-03-27 14:53:59 UTC")
     assert_equal 0, result2.size
   end

@@ -1,3 +1,4 @@
+require 'pry'
 require 'csv'
 require_relative 'merchant_parser'
 
@@ -54,5 +55,9 @@ class MerchantRepository
 
   def find_merchant_by_item_id(id)
     find_by_attribute("id", id)
+  end
+
+  def find_total_revenue_by_merchant_id(id)
+    parent.find_total_revenue_by_merchant_id(id)
   end
 end

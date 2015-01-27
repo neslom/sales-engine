@@ -52,5 +52,15 @@ class InvoiceItemRepository
   def find_invoice_items_by_item_id(id)
     find_all_by_attribute("item_id", id)
   end
+
+  def calculate_revenue(invoice_id)
+    # this is a temporary fix
+    #   need to figure out if there can be multiple invoice_ids coming in here
+    invoice_id = invoice_id.first.to_i
+    find_all_by_attribute("invoice_id", invoice_id).inject(0) do |sum, item|
+      sum += (item.unit_price * item.quantity)
+      sum
+    end
+  end
 end
 

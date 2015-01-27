@@ -22,7 +22,8 @@ class ItemTest < MiniTest::Test
   end
 
   def test_returns_unit_price
-    assert_equal 751.07, item.unit_price
+    assert_equal BigDecimal, item.unit_price.class
+    assert_equal 751.07, item.unit_price.to_f
   end
 
   def test_it_returns_zero_for_nil_unit_price
