@@ -60,4 +60,8 @@ class MerchantRepository
   def find_total_revenue_by_merchant_id(id)
     parent.find_total_revenue_by_merchant_id(id)
   end
+
+  def inspect
+    "#<#{self.class} #{@merchants.size} rows>"
+  end
 end
