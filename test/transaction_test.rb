@@ -5,8 +5,8 @@ require_relative '../lib/transaction'
 class TransactionTest < MiniTest::Test
   attr_reader :parent, :transaction
   def setup
-    sales_engine = SalesEngine.new
-    @parent = TransactionRepository.new('test/support/transactions.csv', sales_engine)
+    sales_engine = SalesEngine.new('test/support')
+    @parent = sales_engine.transaction_repository
     @transaction = Transaction.new({:id => "3", :invoice_id => "4", :credit_card_number => "4354495077693036", :credit_card_expiration_date => nil, :result => "success", :created_at => "2012-03-27 14:54:10 UTC", :updated_at => "2012-03-27 14:54:10 UTC"},  parent)
   end
 
@@ -19,7 +19,7 @@ class TransactionTest < MiniTest::Test
   end
 
   def test_returns_credit_card_number_as_integer
-    assert_equal 4354495077693036, @transaction.credit_card_number
+    assert_equal "4354495077693036", @transaction.credit_card_number
   end
 
   def test_it_finds_invoice_by_transaction_id

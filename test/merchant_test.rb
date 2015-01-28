@@ -6,8 +6,8 @@ require_relative '../lib/sales_engine'
 class MerchantTest < MiniTest::Test
   attr_reader :parent, :merch
   def setup
-    sales_engine = SalesEngine.new
-    @parent = MerchantRepository.new('test/support/merchants.csv', sales_engine)
+    sales_engine = SalesEngine.new('test/support')
+    @parent = sales_engine.merchant_repository
     @merch = Merchant.new({:id => "3", :name => "Willms and Sons", :created_at => "2012-03-27 14:53:59 UTC", :updated_at => "2012-03-27 14:53:59 UTC"}, parent)
   end
 

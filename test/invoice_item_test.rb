@@ -6,8 +6,8 @@ class InvoiceItemTest < MiniTest::Test
   attr_reader :parent, :invoice_item
 
   def setup
-    sales_engine = SalesEngine.new
-    @parent = InvoiceItemRepository.new('test/support/invoice_items.csv', sales_engine)
+    sales_engine = SalesEngine.new('test/support')
+    @parent = sales_engine.invoice_item_repository
     @invoice_item = InvoiceItem.new({:id =>"8", :item_id => "534", :invoice_id => "1", :quantity => "6", :unit_price => "76941", :created_at => "2012-03-27 14:54:09 UTC" , :updated_at => "2012-03-27 14:54:09 UTC"}, parent)
   end
 
