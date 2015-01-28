@@ -11,11 +11,11 @@ class TransactionRepositoryTest < MiniTest::Test
   def test_it_parses_csv_file
     first = transaction_repo.transactions.first
     assert_equal 1, first.id
-    assert_equal 4654405418249632, first.credit_card_number
+    assert_equal "4654405418249632", first.credit_card_number
 
     second = transaction_repo.transactions[1]
     assert_equal 2, second.id
-    assert_equal 4580251236515201, second.credit_card_number
+    assert_equal "4580251236515201", second.credit_card_number
   end
 
   def test_all_returns_all_transaction_instances
@@ -32,10 +32,10 @@ class TransactionRepositoryTest < MiniTest::Test
   end
 
   def test_find_by_attribute
-    result = transaction_repo.find_by_attribute('invoice_id', 4)
+    result = transaction_repo.find_by_attribute("invoice_id", 4)
     assert_equal 4, result.invoice_id
 
-    result2 = transaction_repo.find_by_attribute('credit_card_number', 4515551623735607)
+    result2 = transaction_repo.find_by_attribute("credit_card_number", "4515551623735607")
     assert_equal 4, result2.id
   end
 

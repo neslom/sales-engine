@@ -5,8 +5,8 @@ require_relative '../lib/customer'
 class CustomerTest < MiniTest::Test
   attr_reader :parent, :customer
   def setup
-    sales_engine = SalesEngine.new
-    parent = CustomerRepository.new('test/support/customers.csv', sales_engine)
+    sales_engine = SalesEngine.new('test/support')
+    parent = sales_engine.customer_repository
     @customer = Customer.new({:id => "3", :first_name => "Mariah", :last_name => "Toy", :created_at => "2012-03-27 14:54:10 UTC", :updated_at => "2012-03-27 14:54:10 UTC"},  parent)
   end
 
