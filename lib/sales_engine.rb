@@ -103,9 +103,14 @@ class SalesEngine
 
   # below begins calling repository methods from within this class
 
-  def find_total_revenue_by_merchant_id(id)
+  def find_total_revenue_by_merchant_id(id, date=nil)
     invoice_id = invoice_repository.find_all_by_attribute("merchant_id", id).map(&:id)
-    transaction_repository.find_total_revenue_by_merchant_id(invoice_id)
+    if date.nil? && !id.nil?
+      transaction_repository.find_total_revenue_by_merchant_id(invoice_id)
+    elsif !date.nil? && id.nil?
+      dated = invoice_repository.find_all_by_attribute("created_at", date).map(&:id)
+      transaction_repository.find_total_revenue_by_merchant_id(dated)
+    end
   end
 
   def calculate_revenue(invoice_id)

@@ -18,8 +18,12 @@ class Merchant
     parent.find_invoices_by_merchant_id(id)
   end
 
-  def revenue
+  def revenue(date=nil)
+    if date.nil?
     find_total_revenue_by_merchant_id(id)
+    else
+      parent.revenue(date)
+    end
   end
 
   def find_total_revenue_by_merchant_id(id)
