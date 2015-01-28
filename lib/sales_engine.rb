@@ -7,8 +7,8 @@ require_relative 'transaction_repository'
 
 class SalesEngine
   attr_reader :merchant_repository, :invoice_repository, :item_repository,
-    :invoice_item_repository, :customer_repository, :transaction_repository
-
+  :invoice_item_repository, :customer_repository, :transaction_repository
+  
   def initialize(filepath=nil)
     @filepath = filepath
   end
