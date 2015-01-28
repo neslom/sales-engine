@@ -43,4 +43,8 @@ class ItemTest < MiniTest::Test
     result2 = item.find_merchant_by_item_id(99)
     assert_equal 5, result2.id
   end
+
+  def test_it_finds_best_day
+    #need to write this test... 
+  end
 end

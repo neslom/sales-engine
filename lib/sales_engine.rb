@@ -111,4 +111,17 @@ class SalesEngine
   def calculate_revenue(invoice_id)
     invoice_item_repository.calculate_revenue(invoice_id)
   end
+
+  def find_best_day_for_item(invoices)
+    top_invoice_item = invoices.max_by do |invoice|
+      invoices.each do |inv|
+        if invoice.id == inv.id
+          invoice.amount + inv.amount
+        else
+          invoice.amount
+        end
+      end
+    end
+    top_invoice_item.created_at
+  end
 end

@@ -62,10 +62,13 @@ class ItemRepository
 
   def find_by_name(name)
     find_by_attribute(:name, name)
-    
   end
 
   def inspect
     "#<#{self.class} #{@merchants.size} rows>"
+  end
+
+  def find_best_day_for_item(invoices)
+    parent.find_best_day_for_item(invoices)
   end
 end

@@ -30,4 +30,8 @@ class InvoiceItem
   def find_item_by_invoice_item_id(id)
     parent.find_item_by_invoice_item_id(id)
   end
+
+  def total_price
+    unit_price * quantity
+  end
 end

@@ -2,7 +2,7 @@ require_relative 'date_formatter'
 require 'pry'
 
 class Invoice
-  attr_reader :id, :status, :customer_id, :merchant_id, :parent
+  attr_reader :id, :status, :customer_id, :merchant_id, :parent, :created_at, :updated_at
   def initialize(data, parent)
     @id = data[:id].to_i
     @customer_id = data[:customer_id].to_i
@@ -49,5 +49,10 @@ class Invoice
 
   def invoice_items
     find_all_invoice_items_by_invoice_id(id)
+  end
+
+  def amount
+    amount = invoice_items.map(&:total_price)
+    amount.inject(:+)
   end
 end
