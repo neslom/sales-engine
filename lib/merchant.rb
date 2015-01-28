@@ -21,4 +21,12 @@ class Merchant
   def find_total_revenue_by_merchant_id(id)
     parent.find_total_revenue_by_merchant_id(id)
   end
+
+  def items
+    find_all_items_by_merchant_id(id)
+  end
+
+  def invoices
+    find_invoices_by_merchant_id(id)
+  end
 end
