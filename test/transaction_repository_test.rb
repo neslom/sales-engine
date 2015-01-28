@@ -5,7 +5,7 @@ require_relative '../lib/transaction_repository'
 class TransactionRepositoryTest < MiniTest::Test
   attr_reader :transaction_repo
   def setup
-    @transaction_repo = TransactionRepository.new('test/support/sample_transactions.csv')
+    @transaction_repo = TransactionRepository.new('test/support/transactions.csv')
   end
 
   def test_it_parses_csv_file
@@ -20,7 +20,7 @@ class TransactionRepositoryTest < MiniTest::Test
 
   def test_all_returns_all_transaction_instances
     merchant_count = transaction_repo.all
-    assert_equal 99, merchant_count.size 
+    assert_equal 99, merchant_count.size
   end
 
   def test_random_returns_random_transaction
@@ -34,15 +34,15 @@ class TransactionRepositoryTest < MiniTest::Test
   def test_find_by_attribute
     result = transaction_repo.find_by_attribute('invoice_id', 4)
     assert_equal 4, result.invoice_id
-    
+
     result2 = transaction_repo.find_by_attribute('credit_card_number', 4515551623735607)
     assert_equal 4, result2.id
   end
 
   def test_find_all_by_attribute
     result = transaction_repo.find_all_by_attribute("invoice_id", 2)
-    assert_equal 1, result.size 
-    
+    assert_equal 1, result.size
+
     result2 = transaction_repo.find_all_by_attribute("result", "success")
     assert_equal 83, result2.size
   end
