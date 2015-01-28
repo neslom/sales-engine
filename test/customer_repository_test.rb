@@ -5,7 +5,7 @@ require_relative '../lib/customer_repository'
 class CustomerRepositoryTest < MiniTest::Test
   attr_reader :customer_repo
   def setup
-    @customer_repo = CustomerRepository.new('test/support/sample_customers.csv')
+    @customer_repo = CustomerRepository.new("test/support/sample_customers.csv", self)
   end
 
   def test_it_parses_csv_file
@@ -20,7 +20,7 @@ class CustomerRepositoryTest < MiniTest::Test
 
   def test_all_returns_all_merchant_instances
     merchant_count = customer_repo.all
-    assert_equal 99, merchant_count.size 
+    assert_equal 99, merchant_count.size
   end
 
   def test_random_returns_random_customer
@@ -41,7 +41,7 @@ class CustomerRepositoryTest < MiniTest::Test
 
   def test_find_all_by_attribute
     result = customer_repo.find_all_by_attribute("first_name", "Lisa")
-    assert_equal 2, result.size 
+    assert_equal 2, result.size
 
     result2 = customer_repo.find_all_by_attribute("last_name", "Ondricka")
     assert_equal 1, result2.size

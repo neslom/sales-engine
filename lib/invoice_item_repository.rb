@@ -12,7 +12,7 @@ class InvoiceItemRepository
   def create_invoice_items(file_name)
     invoice_items_parsed = InvoiceItemParser.new(file_name)
     open_file = invoice_items_parsed.read_from_csv
-    @invoice_items = open_file.map { |row| InvoiceItems.new(row, self) }
+    @invoice_items = open_file.map { |row| InvoiceItem.new(row, self) }
   end
 
   def all
@@ -37,6 +37,18 @@ class InvoiceItemRepository
 
   def find_item_by_way_of_invoice_items(id)
     find_all_by_attribute("invoice_id", id)
+  end
+
+  def find_by_item_id(id)
+    find_by_attribute("item_id", id)
+  end
+
+  def find_by_id(id)
+    find_by_attribute("id", id)
+  end
+
+  def find_all_by_quantity(quantity)
+    find_all_by_attribute("quantity", quantity)
   end
 
   def find_invoice_by_invoice_item_id(id)
