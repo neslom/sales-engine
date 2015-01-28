@@ -19,6 +19,10 @@ class InvoiceItem
     find_item_by_invoice_item_id(id)
   end
 
+  def invoice
+    find_invoice_by_invoice_item_id(id)
+  end
+
   def find_invoice_by_invoice_item_id(id)
     parent.find_invoice_by_invoice_item_id(id)
   end

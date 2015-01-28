@@ -45,11 +45,14 @@ class TransactionRepository
   end
 
   def find_total_revenue_by_merchant_id(id)
-    if id.map { |invoice_id| find_all_by_attribute("invoice_id", invoice_id) }.flatten.any? { |t| t.result == "success" }
-      parent.calculate_revenue(id)
-    else
-      puts "No revenue!"
-    end
+    invoice_id = id
+    parent.calculate_revenue(transaction_success_checker(invoice_id))
+  end
+
+  def transaction_success_checker(invoice_id)
+    invoice_id.group_by do |invoice_id|
+      find_all_by_attribute("invoice_id", invoice_id).flat_map { |t| t.result == "success" }
+    end.delete_if { |k, v| !k.include?(true) }.values.flatten
   end
 
   def inspect
