@@ -5,11 +5,11 @@ require_relative '../lib/customer'
 class CustomerTest < MiniTest::Test
   attr_reader :parent, :customer
   def setup
-    sales_engine = SalesEngine.new
-    @parent = CustomerRepository.new('test/support/sample_customers.csv', sales_engine)
+    sales_engine = SalesEngine.new.startup
+    parent = CustomerRepository.new('test/support/sample_customers.csv', sales_engine)
     @customer = Customer.new({:id => "3", :first_name => "Mariah", :last_name => "Toy", :created_at => "2012-03-27 14:54:10 UTC", :updated_at => "2012-03-27 14:54:10 UTC"},  parent)
   end
-  
+
   def test_it_exists
     assert @customer
   end
@@ -27,6 +27,7 @@ class CustomerTest < MiniTest::Test
   end
 
   def test_it_finds_all_invoices_by_customer_id
+    binding.pry
     result = customer.find_all_invoices_by_customer_id(12)
     assert_equal 9, result.size
   end

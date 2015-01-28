@@ -73,4 +73,16 @@ class InvoiceRepository
   def inspect
     "#<#{self.class} #{@merchants.size} rows>"
   end
+
+  def find_by_status(status)
+    find_by_attribute("status", status)
+  end
+
+  def find_all_by_status(status)
+    find_all_by_attribute("status", status)
+  end
+
+  def find_by_id(id)
+    find_by_attribute("id", id)
+  end
 end

@@ -1,7 +1,7 @@
 require 'pry'
 require_relative 'date_formatter'
 
-class InvoiceItems
+class InvoiceItem
   attr_reader :id, :item_id, :invoice_id, :quantity,
               :unit_price, :created_at, :updated_at, :parent
   def initialize(data, parent)
@@ -13,6 +13,10 @@ class InvoiceItems
     @created_at = DateFormatter.format(data[:created_at])
     @updated_at = DateFormatter.format(data[:updated_at])
     @parent = parent
+  end
+
+  def item
+    find_item_by_invoice_item_id(id)
   end
 
   def find_invoice_by_invoice_item_id(id)

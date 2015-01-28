@@ -8,7 +8,7 @@ require_relative 'transaction_repository'
 class SalesEngine
   attr_reader :merchant_repository, :invoice_repository, :item_repository,
     :invoice_item_repository, :customer_repository, :transaction_repository
-  def initialize(filepath)
+  def initialize(filepath=nil)
     @filepath = filepath
   end
 
@@ -39,7 +39,7 @@ class SalesEngine
     transaction_repository.find_all_transactions_by_invoice_id(id)
   end
 
-  def find_all_invoice_items_by_invoice_id(id)
+  def find_all_invoice_items_by_invoice_id(id) # this one
     invoice_item_repository.find_all_invoice_items_by_invoice_id(id)
   end
 

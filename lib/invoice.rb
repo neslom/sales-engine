@@ -13,8 +13,16 @@ class Invoice
     @parent = parent
   end
 
+  def transactions
+    find_all_transactions_by_invoice_id(id)
+  end
+
   def find_all_transactions_by_invoice_id(id)
     parent.find_all_transactions_by_invoice_id(id)
+  end
+
+  def items
+    find_item_by_way_of_invoice_items(id)
   end
 
   def find_all_invoice_items_by_invoice_id(id)
@@ -24,7 +32,7 @@ class Invoice
   def find_item_by_way_of_invoice_items(id)
     find_all_invoice_items_by_invoice_id(id).map(&:item_id).map do |item_id|
       parent.find_item_by_way_of_invoice_items(item_id)
-    end
+    end.flatten
   end
 
   def find_customer_by_invoice_id(id)
@@ -33,5 +41,13 @@ class Invoice
 
   def find_merchant_by_invoice_id(id)
     parent.find_merchant_by_invoice_id(id)
+  end
+
+  def customer
+    find_customer_by_invoice_id(id)
+  end
+
+  def invoice_items
+    find_all_invoice_items_by_invoice_id(id)
   end
 end
