@@ -50,7 +50,7 @@ class MerchantTest < MiniTest::Test
     #assert_equal 95, result2[0].id
   #end
 
-  def test_find_total_revenue_by_merhant_id
+  def test_find_total_revenue_by_merchant_id
     result = merch.find_total_revenue_by_merchant_id(84)
     # invoice_id = 15;
     assert_equal BigDecimal, result.class

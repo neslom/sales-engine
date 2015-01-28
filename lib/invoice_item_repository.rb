@@ -66,13 +66,14 @@ class InvoiceItemRepository
   end
 
   def calculate_revenue(invoice_id)
-    # this is a temporary fix
-    #   need to figure out if there can be multiple invoice_ids coming in here
-    invoice_id = invoice_id.first.to_i
-    find_all_by_attribute("invoice_id", invoice_id).inject(0) do |sum, item|
-      sum += (item.unit_price * item.quantity)
-      sum
+    total = 0
+    invoice_id.each do |invoice_id|
+      total += find_all_by_attribute("invoice_id", invoice_id).inject(0) do |sum, item|
+        sum += (item.unit_price * item.quantity)
+        sum
+      end
     end
+    total
   end
 
   def inspect
