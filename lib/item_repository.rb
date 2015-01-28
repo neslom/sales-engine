@@ -71,4 +71,8 @@ class ItemRepository
   def find_best_day_for_item(invoices)
     parent.find_best_day_for_item(invoices)
   end
+
+  def most_revenue(num)
+    items.sort_by(&:total_revenue).reverse[0..num-1]
+  end
 end

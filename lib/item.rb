@@ -34,4 +34,10 @@ class Item
     invoices = invoice_items.map { |inv_item| inv_item.invoice }
     parent.find_best_day_for_item(invoices)
   end
+
+  def total_revenue
+    invoice_items.inject(0) do |sum, inv_item| 
+      sum + (inv_item.quantity * inv_item.unit_price)
+    end
+  end
 end
