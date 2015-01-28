@@ -31,6 +31,10 @@ class TransactionRepository
     transactions.select { |transaction| transaction.send(attribute) == match }
   end
 
+  def find_by_id(id)
+    find_by_attribute(:id, id)
+  end
+
   def find_all_transactions_by_invoice_id(id)
     find_all_by_attribute("invoice_id", id)
   end
