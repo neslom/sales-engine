@@ -110,6 +110,11 @@ class SalesEngine
     elsif !date.nil? && id.nil?
       dated = invoice_repository.find_all_by_attribute("created_at", date).map(&:id)
       transaction_repository.find_total_revenue_by_merchant_id(dated)
+    elsif !date.nil? && !id.nil?
+      invoice_id = invoice_repository.find_all_by_attribute("merchant_id", id).map(&:id)
+      dated = invoice_repository.find_all_by_attribute("created_at", date).map(&:id)
+      both = invoice_id & dated
+      transaction_repository.find_total_revenue_by_merchant_id(both)
     end
   end
 

@@ -48,4 +48,12 @@ class MerchantTest < MiniTest::Test
     assert_equal BigDecimal, result.class
     assert_equal 31156.16, result.to_f
   end
+
+  def test_find_all_revenue_by_date
+    skip
+  end
+
+  def test_find_revenue_by_date_and_merchant
+    skip
+  end
 end
