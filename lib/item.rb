@@ -29,4 +29,9 @@ class Item
   def merchant
     find_merchant_by_item_id(id)
   end
+
+  def best_day
+    invoices = invoice_items.map { |inv_item| inv_item.invoice }
+    parent.find_best_day_for_item(invoices)
+  end
 end
