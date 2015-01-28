@@ -5,7 +5,7 @@ require_relative '../lib/invoice_item_repository'
 class InvoiceItemRepositoryTest < MiniTest::Test
   attr_reader :invoice_items_repo
   def setup
-    @invoice_items_repo = InvoiceItemRepository.new('test/support/sample_invoice_items.csv')
+    @invoice_items_repo = InvoiceItemRepository.new('test/support/invoice_items.csv')
   end
 
   def test_it_parses_csv_file
@@ -20,7 +20,7 @@ class InvoiceItemRepositoryTest < MiniTest::Test
 
   def test_all_returns_all_invoice_item_instances
     invoice_item_count = invoice_items_repo.all
-    assert_equal 107, invoice_item_count.size 
+    assert_equal 107, invoice_item_count.size
   end
 
   def test_random_returns_random_invoice_item

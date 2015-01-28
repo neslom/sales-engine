@@ -6,7 +6,7 @@ class TransactionTest < MiniTest::Test
   attr_reader :parent, :transaction
   def setup
     sales_engine = SalesEngine.new
-    @parent = TransactionRepository.new('test/support/sample_transactions.csv', sales_engine)
+    @parent = TransactionRepository.new('test/support/transactions.csv', sales_engine)
     @transaction = Transaction.new({:id => "3", :invoice_id => "4", :credit_card_number => "4354495077693036", :credit_card_expiration_date => nil, :result => "success", :created_at => "2012-03-27 14:54:10 UTC", :updated_at => "2012-03-27 14:54:10 UTC"},  parent)
   end
 

@@ -5,7 +5,7 @@ require_relative '../lib/item'
 class ItemTest < MiniTest::Test
   attr_reader :parent, :item
   def setup
-    sales_engine = SalesEngine.new
+    sales_engine = SalesEngine.new('test/support')
     @parent = ItemRepository.new('test/support/sample_items.csv', sales_engine)
     @item = Item.new({:id => "1", :name => "Item Qui Esse", :description => "Nihil autem sit odio inventore deleniti. Est laudantium ratione distinctio laborum. Minus voluptatem nesciunt assumenda dicta voluptatum porro.", :unit_price => "75107", :merchant_id => "1", :created_at => "2012-03-27 14:53:59 UTC", :updated_at => "2012-03-27 14:53:59 UTC"},  parent)
   end

@@ -5,7 +5,7 @@ require_relative '../lib/customer_repository'
 class CustomerRepositoryTest < MiniTest::Test
   attr_reader :customer_repo
   def setup
-    @customer_repo = CustomerRepository.new("test/support/sample_customers.csv", self)
+    @customer_repo = CustomerRepository.new("test/support/customers.csv", self)
   end
 
   def test_it_parses_csv_file

@@ -4,6 +4,6 @@ require_relative '../lib/item_parser'
 
 class ItemParserTest < MiniTest::Test
   def test_it_exists
-    assert ItemParser.new('test/support/sample_items.csv')
+    assert ItemParser.new('test/support/items.csv')
   end
 end

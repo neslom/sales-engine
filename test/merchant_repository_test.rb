@@ -5,7 +5,7 @@ require_relative '../lib/merchant_repository'
 class MerchantRepositoryTest < MiniTest::Test
   attr_reader :merchant_repo
   def setup
-    @merchant_repo = MerchantRepository.new('test/support/sample_merchants.csv')
+    @merchant_repo = MerchantRepository.new('test/support/merchants.csv')
   end
 
   def test_it_parses_csv_file
@@ -20,7 +20,7 @@ class MerchantRepositoryTest < MiniTest::Test
 
   def test_all_returns_all_merchant_instances
     merchant_count = merchant_repo.all
-    assert_equal 99, merchant_count.size 
+    assert_equal 99, merchant_count.size
   end
 
   def test_random_returns_random_merchant
@@ -40,7 +40,7 @@ class MerchantRepositoryTest < MiniTest::Test
 
   def test_find_all_by_attribute
     result = merchant_repo.find_all_by_attribute("name", "Williamson Group")
-    assert_equal 2, result.size 
+    assert_equal 2, result.size
     #result2 = merchant_repo.find_all_by_attribute("created_at", "2012-03-27 14:53:59 UTC")
     #assert_equal 9, result2.size
   end

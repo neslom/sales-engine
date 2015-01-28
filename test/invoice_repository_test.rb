@@ -5,7 +5,7 @@ require_relative '../lib/invoice_repository'
 class InvoiceRepositoryTest < MiniTest::Test
   attr_reader :invoice_repo
   def setup
-    @invoice_repo = InvoiceRepository.new('test/support/sample_invoices.csv')
+    @invoice_repo = InvoiceRepository.new('test/support/invoices.csv')
   end
 
   def test_it_parses_csv_file
@@ -20,7 +20,7 @@ class InvoiceRepositoryTest < MiniTest::Test
 
   def test_all_returns_all_invoice_instances
     invoice_count = invoice_repo.all
-    assert_equal 99, invoice_count.size 
+    assert_equal 99, invoice_count.size
     refute_equal 9, invoice_count.size
   end
 
@@ -41,7 +41,7 @@ class InvoiceRepositoryTest < MiniTest::Test
 
   def test_find_all_by_attribute
     result = invoice_repo.find_all_by_attribute("customer_id", 1)
-    assert_equal 8, result.size 
+    assert_equal 8, result.size
     #result2 = invoice_repo.find_all_by_attribute("created_at", "2012-03-27 14:53:59 UTC")
     #assert_equal 9, result2.size
   end
