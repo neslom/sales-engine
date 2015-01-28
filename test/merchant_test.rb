@@ -42,14 +42,6 @@ class MerchantTest < MiniTest::Test
     assert_equal 2, result2.size
   end
 
-  #def test_find_transaction_by_way_of_merchant_id
-    #skip
-    #result = merch.find_total_revenue_by_merchant_id(84)
-    #assert_equal 16, result[0].id
-    #result2 = merch.find_total_revenue_by_merchant_id(3)
-    #assert_equal 95, result2[0].id
-  #end
-
   def test_find_total_revenue_by_merchant_id
     result = merch.find_total_revenue_by_merchant_id(84)
     # invoice_id = 15;
