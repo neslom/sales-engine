@@ -19,15 +19,11 @@ class Merchant
   end
 
   def revenue(date=nil)
-    if date.nil?
-    find_total_revenue_by_merchant_id(id)
-    else
-      parent.revenue(date)
-    end
+    find_total_revenue_by_merchant_id(id, date)
   end
 
-  def find_total_revenue_by_merchant_id(id)
-    parent.find_total_revenue_by_merchant_id(id)
+  def find_total_revenue_by_merchant_id(id, date=nil)
+    parent.find_total_revenue_by_merchant_id(id, date)
   end
 
   def items

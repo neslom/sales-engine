@@ -57,8 +57,8 @@ class MerchantRepository
     find_by_attribute("id", id)
   end
 
-  def find_total_revenue_by_merchant_id(id)
-    parent.find_total_revenue_by_merchant_id(id)
+  def find_total_revenue_by_merchant_id(id, date)
+    parent.find_total_revenue_by_merchant_id(id, date)
   end
 
   def revenue(date=nil)
