@@ -31,6 +31,14 @@ class ItemRepository
     items.select { |item| item.send(attribute) == match }
   end
 
+  def find_by_unit_price(price)
+    find_by_attribute("unit_price", price)
+  end
+
+  def find_all_by_name(name)
+    find_all_by_attribute("name", name)
+  end
+
   def find_all_items_by_merchant_id(id)
     find_all_by_attribute("merchant_id", id)
   end
@@ -50,6 +58,11 @@ class ItemRepository
   def find_merchant_by_item_id(id)
     merchant_id = find_by_attribute("id", id).merchant_id
     parent.find_merchant_by_item_id(merchant_id)
+  end
+
+  def find_by_name(name)
+    find_by_attribute(:name, name)
+    
   end
 
   def inspect

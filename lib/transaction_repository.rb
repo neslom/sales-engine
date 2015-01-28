@@ -51,5 +51,13 @@ class TransactionRepository
   def inspect
     "#<#{self.class} #{@merchants.size} rows>"
   end
+
+  def find_all_by_result(result)
+    find_all_by_attribute(:result, result)
+  end
+
+  def find_by_credit_card_number(id)
+    find_by_attribute(:credit_card_number, id)
+  end
 end
 
