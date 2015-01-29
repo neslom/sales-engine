@@ -1,5 +1,4 @@
-require 'minitest/test'
-require 'minitest/pride'
+require_relative 'test_helper'
 require_relative '../lib/merchant_repository'
 
 class MerchantRepositoryTest < MiniTest::Test
@@ -41,7 +40,5 @@ class MerchantRepositoryTest < MiniTest::Test
   def test_find_all_by_attribute
     result = merchant_repo.find_all_by_attribute("name", "Williamson Group")
     assert_equal 2, result.size
-    #result2 = merchant_repo.find_all_by_attribute("created_at", "2012-03-27 14:53:59 UTC")
-    #assert_equal 9, result2.size
   end
 end

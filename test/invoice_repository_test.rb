@@ -1,5 +1,4 @@
-require 'minitest/test'
-require 'minitest/pride'
+require_relative 'test_helper'
 require_relative '../lib/invoice_repository'
 
 class InvoiceRepositoryTest < MiniTest::Test
@@ -42,7 +41,5 @@ class InvoiceRepositoryTest < MiniTest::Test
   def test_find_all_by_attribute
     result = invoice_repo.find_all_by_attribute("customer_id", 1)
     assert_equal 8, result.size
-    #result2 = invoice_repo.find_all_by_attribute("created_at", "2012-03-27 14:53:59 UTC")
-    #assert_equal 9, result2.size
   end
 end

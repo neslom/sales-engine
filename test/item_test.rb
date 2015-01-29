@@ -1,5 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
+require_relative 'test_helper'
 require_relative '../lib/item'
 
 class ItemTest < MiniTest::Test
@@ -42,9 +41,5 @@ class ItemTest < MiniTest::Test
     assert_equal 1, result.id
     result2 = item.find_merchant_by_item_id(99)
     assert_equal 5, result2.id
-  end
-
-  def test_it_finds_best_day
-    #need to write this test... 
   end
 end
