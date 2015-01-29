@@ -33,4 +33,8 @@ class Merchant
   def invoices
     find_invoices_by_merchant_id(id)
   end
+
+  def favorite_customer
+    parent.favorite_customer(id)
+  end
 end

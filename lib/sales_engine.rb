@@ -134,4 +134,11 @@ class SalesEngine
     end
     top_invoice_item.created_at
   end
+
+  def favorite_customer(id)
+    cust_id = invoice_repository.find_invoices_by_merchant_id(id).group_by do |invoice|
+      invoice.customer_id
+    end.max_by { |k, v| v.size }.first
+    customer_repository.find_by_attribute("id", cust_id)
+  end
 end
