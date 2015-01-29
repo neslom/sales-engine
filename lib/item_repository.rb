@@ -39,6 +39,10 @@ class ItemRepository
     find_all_by_attribute("name", name)
   end
 
+  def return_merchant_id(item_id)
+    find_by_attribute("id", item_id).merchant_id
+  end
+
   def find_all_items_by_merchant_id(id)
     find_all_by_attribute("merchant_id", id)
   end

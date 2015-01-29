@@ -41,7 +41,6 @@ class MerchantRepository
   end
 
   def find_all_items_by_merchant_id(value)
-    #find_by_attribute("id", value)
     parent.find_all_items_by_merchant_id(value)
   end
 
@@ -49,15 +48,15 @@ class MerchantRepository
     parent.find_invoices_by_merchant_id(id)
   end
 
-  def find_merchant_by_invoice_id(id)
-    find_by_attribute("id", id)
-  end
+  #def find_merchant_by_invoice_id(id)
+  #find_by_attribute("invoice_id", id)
+  #end
 
-  def find_merchant_by_item_id(id)
-    find_by_attribute("id", id)
-  end
+  #def find_merchant_by_item_id(id)
+  #find_by_attribute("item_id", id)
+  #end
 
-  def find_total_revenue_by_merchant_id(id, date)
+  def find_total_revenue_by_merchant_id(id, date=nil)
     parent.find_total_revenue_by_merchant_id(id, date)
   end
 
@@ -69,7 +68,16 @@ class MerchantRepository
     parent.favorite_customer(id)
   end
 
+  def most_revenue(x)
+    merchants.sort_by { |merch| find_total_revenue_by_merchant_id(merch.id) }.reverse[0...x]
+  end
+
+  def most_items(x)
+    merchants.sort_by { |merch| find_all_items_by_merchant_id(merch.id).size }.reverse.
+      sort_by { |merch| find_total_revenue_by_merchant_id(merch.id) }.reverse[0...x]
+  end
+
   def inspect
-    "#<#{self.class} #{@merchants.size} rows>"
+    "#<#{self.class} #{merchants.size} rows>"
   end
 end
