@@ -65,7 +65,7 @@ class ItemRepository
   end
 
   def inspect
-    "#<#{self.class} #{@merchants.size} rows>"
+    "#<#{self.class} #{items.size} rows>"
   end
 
   def find_best_day_for_item(invoices)
