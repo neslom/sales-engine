@@ -56,4 +56,8 @@ class MerchantTest < MiniTest::Test
   def test_find_revenue_by_date_and_merchant
     skip
   end
+
+  def test_find_favorite_customer
+    skip
+  end
 end

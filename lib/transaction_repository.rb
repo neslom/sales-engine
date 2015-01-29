@@ -55,6 +55,12 @@ class TransactionRepository
     end.delete_if { |k, v| !k.include?(true) }.values.flatten
   end
 
+  def transaction_failure_checker(invoice_id)
+    invoice_id.group_by do |invoice_id|
+      find_all_by_attribute("invoice_id", invoice_id).flat_map { |t| t.result == "success" }
+    end.delete_if { |k, v| k.include?(true) }.values.flatten
+  end
+
   def inspect
     "#<#{self.class} #{@merchants.size} rows>"
   end
@@ -67,4 +73,3 @@ class TransactionRepository
     find_by_attribute(:credit_card_number, id)
   end
 end
-
