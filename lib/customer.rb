@@ -18,4 +18,8 @@ class Customer
   def find_all_invoices_by_customer_id(id)
     parent.find_all_invoices_by_customer_id(id)
   end
+
+  def transactions
+   invoices.flatten(&:transactions)
+  end
 end
