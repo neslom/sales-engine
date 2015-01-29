@@ -43,20 +43,7 @@ class MerchantTest < MiniTest::Test
 
   def test_find_total_revenue_by_merchant_id
     result = merch.find_total_revenue_by_merchant_id(84)
-    # invoice_id = 15;
     assert_equal BigDecimal, result.class
     assert_equal 31156.16, result.to_f
-  end
-
-  def test_find_all_revenue_by_date
-    skip
-  end
-
-  def test_find_revenue_by_date_and_merchant
-    skip
-  end
-
-  def test_find_favorite_customer
-    skip
   end
 end
