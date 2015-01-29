@@ -91,17 +91,12 @@ class SalesEngine
   end
 
   def find_invoice_items_by_item_id(id)
-    # this is an example of an eventual refactoring opportunity
-    # invoice_item_repository.find_invoice_items_by_item_id(id)
     invoice_item_repository.find_all_by_attribute("item_id", id)
   end
 
   def find_merchant_by_item_id(id)
-    #merchant_repository.find_by_attribute("id", id)
     merchant_repository.find_merchant_by_item_id(id)
   end
-
-  # below begins calling repository methods from within this class
 
   def find_total_revenue_by_merchant_id(id, date=nil)
     invoice_id = invoice_repository.find_all_by_attribute("merchant_id", id).map(&:id)

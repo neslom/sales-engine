@@ -38,15 +38,13 @@ class Merchant
     parent.favorite_customer(id)
   end
 
-  def customer_ids
+  def failed_customer_transactions
     parent.parent.transaction_repository.transaction_failure_checker(invoices.map(&:id))
   end
 
   def customers_with_pending_invoices
-    customer_ids.map do |cust|
-      parent.parent.invoice_repository.find_by_attribute("id", cust)
-    end.map(&:customer_id).map { |cust| parent.parent.customer_repository.find_by_attribute("id", cust) }
+    failed_customer_transactions.map { |cust| parent.parent.invoice_repository.find_by_attribute("id", cust) }
+      .map(&:customer_id).map { |cust| parent.parent.customer_repository.find_by_attribute("id", cust) }
   end
-
 end
 
