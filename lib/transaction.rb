@@ -2,8 +2,8 @@ require_relative 'date_formatter'
 
 class Transaction
   attr_reader :id, :invoice_id, :credit_card_number,
-              :credit_card_expiration_date, :result,
-              :created_at, :updated_at, :parent
+  :credit_card_expiration_date, :result,
+  :created_at, :updated_at, :parent
   def initialize(data, parent)
     @id = data[:id].to_i
     @invoice_id = data[:invoice_id].to_i

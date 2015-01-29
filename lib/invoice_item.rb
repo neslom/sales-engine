@@ -3,7 +3,7 @@ require_relative 'date_formatter'
 
 class InvoiceItem
   attr_reader :id, :item_id, :invoice_id, :quantity,
-              :unit_price, :created_at, :updated_at, :parent
+  :unit_price, :created_at, :updated_at, :parent
   def initialize(data, parent)
     @id = data[:id].to_i
     @item_id = data[:item_id].to_i

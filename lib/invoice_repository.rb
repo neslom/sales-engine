@@ -85,4 +85,8 @@ class InvoiceRepository
   def find_by_id(id)
     find_by_attribute("id", id)
   end
+
+  def find_favorite_merchant(merchant_id)   
+    parent.find_favorite_merchant(merchant_id)   
+  end
 end
