@@ -71,7 +71,7 @@ class InvoiceRepository
   end
 
   def inspect
-    "#<#{self.class} #{@merchants.size} rows>"
+    "#<#{self.class} #{invoices.size} rows>"
   end
 
   def find_by_status(status)
@@ -84,9 +84,5 @@ class InvoiceRepository
 
   def find_by_id(id)
     find_by_attribute("id", id)
-  end
-
-  def find_favorite_merchant(merchant_id)
-    parent.find_favorite_merchant(merchant_id)
   end
 end

@@ -43,8 +43,7 @@ class Merchant
   end
 
   def customers_with_pending_invoices
-    #customer_ids =
-    #parent.parent.transaction_repository.transaction_failure_checker(invoices.map(&:id))
+    binding.pry
     customer_ids.map do |cust|
       parent.parent.invoice_repository.find_by_attribute("id", cust)
     end.map(&:customer_id).map { |cust| parent.parent.customer_repository.find_by_attribute("id", cust) }
