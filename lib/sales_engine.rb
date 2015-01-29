@@ -141,4 +141,8 @@ class SalesEngine
     end.max_by { |k, v| v.size }.first
     customer_repository.find_by_attribute("id", cust_id)
   end
+
+  def find_favorite_merchant(merchant_id)
+    merchant_repository.find_by_attribute(:id, merchant_id)
+  end
 end

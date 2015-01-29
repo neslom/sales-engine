@@ -18,6 +18,10 @@ class Invoice
     find_all_transactions_by_invoice_id(id)
   end
 
+  def merchants
+    parent.find_favorite_merchant(merchant_id)
+  end
+
   def find_all_transactions_by_invoice_id(id)
     parent.find_all_transactions_by_invoice_id(id)
   end

@@ -20,6 +20,10 @@ class Customer
   end
 
   def transactions
-   invoices.flatten(&:transactions)
+   invoices.flat_map(&:transactions)
+  end
+
+  def favorite_merchant
+    invoices.flat_map(&:merchants).max_by { |invoices| invoices(&:successful_charge?) }
   end
 end
