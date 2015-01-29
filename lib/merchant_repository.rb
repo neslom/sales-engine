@@ -48,13 +48,13 @@ class MerchantRepository
     parent.find_invoices_by_merchant_id(id)
   end
 
-  #def find_merchant_by_invoice_id(id)
-  #find_by_attribute("invoice_id", id)
-  #end
+  def find_merchant_by_invoice_id(id)
+  find_by_attribute("id", id)
+  end
 
-  #def find_merchant_by_item_id(id)
-  #find_by_attribute("item_id", id)
-  #end
+  def find_merchant_by_item_id(id)
+  find_by_attribute("id", id)
+  end
 
   def find_total_revenue_by_merchant_id(id, date=nil)
     parent.find_total_revenue_by_merchant_id(id, date)
