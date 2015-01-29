@@ -65,6 +65,10 @@ class MerchantRepository
     parent.find_total_revenue_by_merchant_id(id=nil, date)
   end
 
+  def favorite_customer(id)
+    parent.favorite_customer(id)
+  end
+
   def inspect
     "#<#{self.class} #{@merchants.size} rows>"
   end
