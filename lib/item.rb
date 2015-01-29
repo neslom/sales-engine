@@ -40,4 +40,13 @@ class Item
       sum + (inv_item.quantity * inv_item.unit_price)
     end
   end
+
+  def total_sold
+    invoice_items = completed_invoice_items
+    invoice_items.collect{|invoice_item| invoice_item.quantity}.reduce(0, :+)
+  end
+
+  def completed_invoice_items
+    invoice_items.find_all(&:successful?)
+  end
 end
