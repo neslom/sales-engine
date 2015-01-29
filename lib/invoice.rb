@@ -56,4 +56,8 @@ class Invoice
     amount = invoice_items.map(&:total_price)
     amount.inject(:+)
   end
+
+  def successful_charge?
+    transactions.any?(&:successful?)
+  end
 end

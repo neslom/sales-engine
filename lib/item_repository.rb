@@ -73,6 +73,10 @@ class ItemRepository
   end
 
   def most_revenue(num)
-    items.sort_by(&:total_revenue).reverse[0..num-1]
+    all.sort_by(&:total_revenue).reverse[0..num-1]
+  end
+
+  def most_items(num)
+    all.sort_by { |item| item.total_sold }.reverse[0..num-1]
   end
 end

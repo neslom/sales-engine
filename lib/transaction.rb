@@ -22,5 +22,10 @@ class Transaction
   def invoice
     find_invoice_by_transaction_id(id)
   end
+
+  def successful?
+    result == "success"
+  end
+  
 end
 
