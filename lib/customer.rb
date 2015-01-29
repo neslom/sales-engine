@@ -18,4 +18,12 @@ class Customer
   def find_all_invoices_by_customer_id(id)
     parent.find_all_invoices_by_customer_id(id)
   end
+
+  def transactions
+   invoices.flat_map(&:transactions)
+  end
+
+  def favorite_merchant
+    invoices.flat_map(&:merchants).max_by { |invoices| invoices(&:successful_charge?) }
+  end
 end
